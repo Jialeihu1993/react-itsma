@@ -12,9 +12,12 @@
 .npmignore text
 .babelrc text
 .eslintrc text
+.npmrc text
 
 #sources
 *.sh     text
 *.js     text
 *.xml    text
 *.md     text
+*.json   text
+*.html   text

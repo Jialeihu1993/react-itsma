@@ -9,8 +9,8 @@
   "publishConfig": {
     "registry":"https://shc-nexus-repo.hpeswlab.net:8443/repository/itsma-npm/"
   },
-  "license": "MIT",
   "scripts": {
+    "clean": "rimraf dist/*",
     "prepublish": "bash ./.scripts/prepublish.sh",
     "lint": "eslint src",
     "lintfix": "eslint src --fix",
