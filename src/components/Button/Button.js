@@ -9,14 +9,14 @@ const buttonStyles = {
   padding: '3px 10px',
 };
 
-const Button = ({ children, onClick, style = {} }) => (
-  <button
-    style={{ ...buttonStyles, ...style }}
-    onClick={onClick}
-  >
-    {children}
-  </button>
-);
+function Button(props) {
+  const { children, onClick, style } = props;
+  return (
+    <button style={{ ...buttonStyles, ...style }} onClick={onClick}>
+      {children}  
+    </button>
+  );
+}
 
 Button.propTypes = {
   children: React.PropTypes.string.isRequired,
