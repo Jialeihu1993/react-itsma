@@ -1,7 +1,7 @@
-# React Itsma Component
+# React Itsma Component Library
 
 ## Use ITSMA private registry
-The config-ui repository is using the private NPM in ITSMA development runtime server.
+The react-itsma repository is using the private NPM in ITSMA development runtime server.
 Please config your local NPM client to work correctly with the private registry.
 
 ```bash
