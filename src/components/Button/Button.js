@@ -13,7 +13,7 @@ function Button(props) {
   const { children, onClick, style } = props;
   return (
     <button style={{ ...buttonStyles, ...style }} onClick={onClick}>
-      {children}  
+      {children}
     </button>
   );
 }

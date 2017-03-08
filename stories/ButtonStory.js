@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import Button from '../components/Button';
+import Button from '../src/components/Button';
 
 const ButtonStory = function() {
   storiesOf('Button', module)
