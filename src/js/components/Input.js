@@ -2,19 +2,20 @@
  * Created by hepen on 5/26/2017.
  */
 import React from 'react';
-import validator from 'validator';
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, intlShape, injectIntl} from 'react-intl';
 import {FormControl} from 'react-bootstrap';
 import {INPUT_PROPERTY, INPUT_PROPERTY_SINGLE} from '../contants/ConstantsProperty';
 import BaseComponent from './BaseComponent';
 
-export default class Input extends BaseComponent {
+class Input extends BaseComponent {
   constructor(props) {
     super(props);
+    const {formatMessage} = this.props.intl;
+    this.formatMessage = formatMessage;
     this.state = {
       validated: true,
       invalidMessage: null
-    }
+    };
     this.onBlurFunc;
   }
 
@@ -50,6 +51,8 @@ export default class Input extends BaseComponent {
     propertyKeys.forEach(key => {
       if (INPUT_PROPERTY_SINGLE.indexOf(key) >= 0 && this.property[key].toString() !== 'true') {
         delete this.property[key];
+      } else if (key === 'placeholder') {
+        property[key] = this.formatMessage({id: this.property[key]});
       } else if (key === 'onBlur') {
         this.onBlurFunc = this.property[key];
         hasBlur = true;
@@ -123,3 +126,5 @@ Input.propTypes = Object.assign(BaseComponent.propTypes, {
   validateFunc: React.PropTypes.func
 
 });
+
+export default injectIntl(Input);
