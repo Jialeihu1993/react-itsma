@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import Toggle from '../components/Toggle';
 
-const ToggleStory = function() {
+const ToggleStory = function() { 
   storiesOf('Toggle', module)
   .add('default view', () => (
     <Toggle isToggleOn={false} />
