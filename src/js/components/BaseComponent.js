@@ -2,11 +2,14 @@
  * Created by hepen on 5/26/2017.
  */
 import React from 'react';
+import {FormattedMessage} from 'react-intl';
 
 export default class BaseComponent extends React.Component {
   constructor(props) {
     super(props);
     this.property = {};
+    const {formatMessage} = this.props.intl;
+    this.formatMessage = formatMessage;
   }
 
   componentWillMount() {

@@ -2,16 +2,14 @@
  * Created by hepen on 5/26/2017.
  */
 import React from 'react';
-import {FormattedMessage, intlShape, injectIntl} from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 import {FormControl} from 'react-bootstrap';
-import {INPUT_PROPERTY, INPUT_PROPERTY_SINGLE} from '../contants/ConstantsProperty';
-import BaseComponent from './BaseComponent';
+import {INPUT_PROPERTY, INPUT_PROPERTY_SINGLE} from '../../contants/ConstantsProperty';
+import BaseComponent from '../BaseComponent';
 
-class Input extends BaseComponent {
+export default class Input extends BaseComponent {
   constructor(props) {
     super(props);
-    const {formatMessage} = this.props.intl;
-    this.formatMessage = formatMessage;
     this.state = {
       validated: true,
       invalidMessage: null
@@ -38,7 +36,7 @@ class Input extends BaseComponent {
     if (this.property.label) {
       return (
         <div className="cusMargin17"><span className="inputTitle"><FormattedMessage id={this.property.label} defaultMessage={this.property.label}/></span>
-          {this.property.required.toString() === 'true'  ? (<span className="manatory">*</span>) : null}
+          {this.property.required === true  ? (<span className="manatory">*</span>) : null}
         </div>)
     }
     return null;
@@ -49,7 +47,7 @@ class Input extends BaseComponent {
     let propertyKeys = Object.keys(this.property);
     propertyKeys = propertyKeys.filter(key => INPUT_PROPERTY.indexOf(key) >= 0);
     propertyKeys.forEach(key => {
-      if (INPUT_PROPERTY_SINGLE.indexOf(key) >= 0 && this.property[key].toString() !== 'true') {
+      if (INPUT_PROPERTY_SINGLE.indexOf(key) >= 0 && this.property[key] !== true) {
         delete this.property[key];
       } else if (key === 'placeholder') {
         property[key] = this.formatMessage({id: this.property[key]});
@@ -82,10 +80,10 @@ class Input extends BaseComponent {
     if (this.property.validateFunc) {
       result = this.property.validateFunc(event);
       if(!result){
-        this.setState({validated: false, invalidMessage: this.property.validationMessage});
+        this.setState({validated: false, invalidMessage: this.formatMessage({id: this.property.validationMessage})});
       }
     } else {
-      if (this.property.required.toString() === 'true') {
+      if (this.property.required === true) {
         result = event.target.value != null && event.target.value != '';
         if (!result){
           this.setState({validated: false, invalidMessage: null});
@@ -112,8 +110,8 @@ Input.propTypes = Object.assign(BaseComponent.propTypes, {
   value: React.PropTypes.string,
   label: React.PropTypes.string,
   placeholder: React.PropTypes.string,
-  required: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.string]),
-  readOnly: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.string]),
+  required: React.PropTypes.bool,
+  readOnly: React.PropTypes.bool,
   max: React.PropTypes.string,
   min: React.PropTypes.string,
   maxLength: React.PropTypes.string,
@@ -126,5 +124,3 @@ Input.propTypes = Object.assign(BaseComponent.propTypes, {
   validateFunc: React.PropTypes.func
 
 });
-
-export default injectIntl(Input);
