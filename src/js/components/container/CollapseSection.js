@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import BaseContainer from './BaseContainer';
+import CssUtils from '../../utils/CssUtils';
 
 export default class CollapseSection extends BaseContainer {
     constructor(props) {
@@ -50,7 +51,7 @@ export default class CollapseSection extends BaseContainer {
         if (this.state.isCollapsed) {
             return null;
         }
-        return <div className="collapseSection">{this.props.children}</div>
+        return <div className={CssUtils.get('collapseSection')}>{this.props.children}</div>
     }
 }
 
