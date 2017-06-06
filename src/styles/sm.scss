@@ -1,0 +1,33 @@
+.collapseArrow {
+  fontSize: 14px;
+  lineHeight: 36px;
+  color: #cccccc;
+  cursor: pointer;
+  width: 20px;
+}
+
+.nav-tabs>li>a {
+  font-family: HPEMetricMedium;
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  font-family: HPEMetricMedium;
+  color: #01A982;
+  font-size: 18px;
+  line-height: 36px;
+  border-top: 3px solid #01A982;
+}
+
+.div-no-indent {
+  padding-left: 0px;
+}
+
+.div-indent30 {
+  padding-left: 30px;
+}
+
+.div-margin-top {
+  margin-top: 15px;
+}
