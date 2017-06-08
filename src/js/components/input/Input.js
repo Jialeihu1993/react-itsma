@@ -62,7 +62,7 @@ export default class Input extends BaseComponent {
     if (!hasBlur) {
       property.onBlur = this.onBlurValidation.bind(this);
     }
-    let element = React.createElement('FormControl', property, null);
+
     return (<FormControl {...property}/>);
   }
 
