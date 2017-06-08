@@ -5,6 +5,7 @@ import {injectIntl} from 'react-intl';
 import CssUtils from './js/utils/CssUtils';
 const styleMap = require('./styles/index.scss');
 
+
 CssUtils.setCssMap(styleMap);
 
 module.exports = {
