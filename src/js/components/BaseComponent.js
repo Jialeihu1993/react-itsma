@@ -55,10 +55,8 @@ BaseComponent.propTypes = {
   name: React.PropTypes.string,
   style: React.PropTypes.string,
   className: React.PropTypes.string,
-  disabled: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.string]),
-  visible: React.PropTypes.oneOfType([React.PropTypes.bool, React.PropTypes.string]),
-
-  onClick: React.PropTypes.func
+  disabled: React.PropTypes.bool,
+  visible: React.PropTypes.bool
 };
 
 BaseComponent.defaultProps = {
