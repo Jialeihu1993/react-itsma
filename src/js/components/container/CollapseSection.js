@@ -36,8 +36,8 @@ export default class CollapseSection extends BaseContainer {
         return (
             <div>
                 <div>
-                    <span className={this._iconStatus() + ' collapseArrow'} onClick={(event) => this._hideHandler(event)}></span>
-                    <span className="titleBig"><FormattedMessage id={this.property.title} defaultMessage={this.property.title}/></span>
+                    <span className={this._iconStatus() + ' ' + CssUtils.get('collapseArrow')} onClick={(event) => this._hideHandler(event)}></span>
+                    <span className={CssUtils.get('titleBig')}><FormattedMessage id={this.property.title} defaultMessage={this.property.title}/></span>
                 </div>
                 <div className>
                     <hr />
