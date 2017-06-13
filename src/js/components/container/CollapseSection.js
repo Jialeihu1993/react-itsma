@@ -32,7 +32,7 @@ export default class CollapseSection extends BaseContainer {
         return 'glyphicon glyphicon-menu-up';
     }
 
-    renderComponent() {
+    renderComponent(property) {
         return (
             <div>
                 <div>

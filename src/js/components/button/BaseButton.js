@@ -7,6 +7,7 @@ import {Button} from 'react-bootstrap';
 import {BUTTON_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseComponent from '../BaseComponent';
 import ButtonFromMapping from '../../utils/ButtonFormMapping';
+import CssUtils from '../../utils/CssUtils';
 
 export default class BaseButton extends BaseComponent {
     constructor(props) {
@@ -25,8 +26,11 @@ export default class BaseButton extends BaseComponent {
         propertyKeys.forEach(key => {
             property[key] = this.property[key];
         });
+
+        let className = CssUtils.get('baseButton');
+
         return (
-            <Button {...property}>{this.formatMessage({id: this.property.label})}</Button>
+            <Button {...property} className={className}>{this.formatMessage({id: this.property.label})}</Button>
         )
     }
 

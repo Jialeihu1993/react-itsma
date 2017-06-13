@@ -1,17 +1,17 @@
 /**
- * Created by hepen on 5/26/2017.
+ * Created by hepen on 6/12/2017.
  */
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
-import {INPUT_PROPERTY} from '../../contants/ConstantsProperty';
+import {Radio, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
+import {RADIO_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
 import CssUtils from '../../utils/CssUtils';
 
-export default class Input extends BaseInput {
+export default class RadioComp extends BaseInput {
     constructor(props) {
         super(props);
-        this.setPropertyKeyList(INPUT_PROPERTY);
+        this.setPropertyKeyList(RADIO_PROPERTY);
     }
 
     componentWillMount() {
@@ -37,7 +37,7 @@ export default class Input extends BaseInput {
                 <div className={CssUtils.get('cusMargin15')}>
                     <span>
                         <ControlLabel className={className}>{this.formatMessage({id: this.property.label})}
-                        {this.property.required === true  ? (<span className={CssUtils.get('mandatory')}>*</span>) : null}</ControlLabel>
+                            {this.property.required === true  ? (<span className={CssUtils.get('mandatory')}>*</span>) : null}</ControlLabel>
                     </span>
                 </div>
             )
@@ -48,11 +48,37 @@ export default class Input extends BaseInput {
     renderInput(property) {
         let className = null;
         if (!this.state.validated) {
-            className = 'input-cus ' + CssUtils.get('has-error');
+            className = CssUtils.get('has-error');
             property.className = className;
         }
 
-        return (<FormControl {...property}/>);
+        let radioComp = this.renderRadioByParameter(property);
+
+        return radioComp;
+    }
+
+    renderRadioByParameter(property) {
+        let {parameters} = this.property;
+        let checkedValue;
+        if (!parameters) return;
+        if (this.property.model && this.property.property) {
+            checkedValue = this.property.model[this.property.property];
+        } else if (this.property.value != null) {
+            checkedValue = this.property.value;
+        }
+
+        let className = '';
+        if (!this.state.validated) {
+            className += CssUtils.get('has-error');
+        }
+
+        let result = parameters.map(param => {
+            let checked = param.value === checkedValue ? 'checked':'';
+            let radioProps = Object.assign({}, property);
+            if (checked === 'checked') radioProps.checked = true;
+            return <Radio {...radioProps} value={param.value}><span className={className}>{param.text}</span></Radio>
+        });
+        return result;
     }
 
     renderInValidation() {
@@ -103,21 +129,15 @@ export default class Input extends BaseInput {
     }
 
     getProperty(propertyName) {
-        let property;
-        if (propertyName === 'value' && this.props.model && this.props.property) {
-            property = this.props.model[this.props.property];
-        } else {
-            property = this.props[propertyName];
-        }
+        let property = this.props[propertyName];
 
         return property;
     }
 }
 
-Input.propTypes = Object.assign(BaseInput.propTypes, {
+RadioComp.propTypes = Object.assign(BaseInput.propTypes, {
     placeholder: React.PropTypes.string,
-    max: React.PropTypes.string,
-    min: React.PropTypes.string,
-    maxLength: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
+    inline: React.PropTypes.bool,
+    parameters: React.PropTypes.array
 });
