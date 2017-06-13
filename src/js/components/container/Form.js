@@ -10,6 +10,7 @@ import ButtonFormMapping from '../../utils/ButtonFormMapping';
 export default class FormContainer extends BaseContainer {
     constructor(props) {
         super(props);
+        this.setPropertyKeyList(FORM_PROPERTY);
         this.state = {
         };
     }
@@ -39,7 +40,6 @@ export default class FormContainer extends BaseContainer {
                 this.processChildButton(child);
             }
         }
-        debugger;
     }
 
     runValidation(){
@@ -49,16 +49,9 @@ export default class FormContainer extends BaseContainer {
     componentWillMount() {
     }
 
-    renderComponent() {
-        let property = {};
-        let propertyKeys = Object.keys(this.property);
-        propertyKeys = propertyKeys.filter(key => FORM_PROPERTY.indexOf(key) >= 0);
-        propertyKeys.forEach(key => {
-            property[key] = this.property[key];
-        });
-
+    renderComponent(property) {
         return (
-            <Form {...property} onSubmit={() => this.runValidation()}>{this.props.children}</Form>
+            <Form {...property}>{this.props.children}</Form>
         )
     }
 }
