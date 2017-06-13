@@ -7,6 +7,7 @@ const styleMap = require('./styles/index.scss');
 
 CssUtils.setCssMap(styleMap);
 
+
 module.exports = {
   Form: injectIntl(require('./js/components/container/Form').default),
   Input: injectIntl(require('./js/components/input/Input').default),
