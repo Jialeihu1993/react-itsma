@@ -6,6 +6,7 @@ export const BASE_INPUT_PROPERTY = ['disabled', 'name', 'readOnly', 'value', 'on
 export const BASE_INPUT_PROPERTY_SINGLE = ['checked', 'disabled', 'readOnly'];
 export const INPUT_PROPERTY = ['max', 'min', 'maxLength', 'placeholder', 'type'].concat(BASE_INPUT_PROPERTY);
 export const RADIO_PROPERTY = ['checked', 'inline'].concat(BASE_INPUT_PROPERTY);
+export const CHECKBOX_PROPERTY = ['checked', 'inline'].concat(BASE_INPUT_PROPERTY);
 
 
 export const FORM_PROPERTY = ['horizontal'].concat(BASE_PROPERTY);
