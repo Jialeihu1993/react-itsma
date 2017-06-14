@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
+import {FormControl} from 'react-bootstrap';
 import {INPUT_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
 import CssUtils from '../../utils/CssUtils';

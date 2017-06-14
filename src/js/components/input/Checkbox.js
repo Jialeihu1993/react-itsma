@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Checkbox, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
+import {Checkbox} from 'react-bootstrap';
 import {CHECKBOX_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
 import CssUtils from '../../utils/CssUtils';
@@ -98,8 +98,6 @@ export default class CheckboxComp extends BaseInput {
 }
 
 CheckboxComp.propTypes = Object.assign(BaseInput.propTypes, {
-    placeholder: React.PropTypes.string,
-    type: React.PropTypes.string,
     inline: React.PropTypes.bool,
     parameters: React.PropTypes.array
 });

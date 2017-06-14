@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Radio, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
+import {Radio} from 'react-bootstrap';
 import {RADIO_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
 import CssUtils from '../../utils/CssUtils';
@@ -53,8 +53,6 @@ export default class RadioComp extends BaseInput {
 }
 
 RadioComp.propTypes = Object.assign(BaseInput.propTypes, {
-    placeholder: React.PropTypes.string,
-    type: React.PropTypes.string,
     inline: React.PropTypes.bool,
     parameters: React.PropTypes.array
 });
