@@ -13,4 +13,6 @@ module.exports = {
     CollapseSection: injectIntl(require('./js/components/container/CollapseSection').default),
     Button: injectIntl(require('./js/components/button/BaseButton').default),
     Radio: injectIntl(require('./js/components/input/Radio').default),
+    Checkbox: injectIntl(require('./js/components/input/Checkbox').default),
+    Select: injectIntl(require('./js/components/input/Select').default)
 };
