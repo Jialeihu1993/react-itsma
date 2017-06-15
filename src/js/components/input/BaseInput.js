@@ -63,24 +63,15 @@ export default class BaseInput extends BaseComponent {
     }
 
     filterSpecialProperty(property) {
-        let hasBlur = false, hasChange = false;
+        let hasChange = false;
         let propertyKeys = Object.keys(property);
         propertyKeys.forEach(key => {
-            if (key === 'placeholder') {
-                property[key] = this.formatMessage({id: property[key]});
-            } else if (key === 'onBlur') {
-                this.onBlurFunc = property[key];
-                hasBlur = true;
-                property[key] = this.onBlurValidation.bind(this);
-            } else if (key === 'onChange') {
+            if (key === 'onChange') {
                 this.onBlurFunc = property[key];
                 hasChange = true;
                 property[key] = this.onChangeBind.bind(this);
             }
         });
-        if (!hasBlur) {
-            property.onBlur = this.onBlurValidation.bind(this);
-        }
         if (!hasChange) {
             property.onChange = this.onChangeBind.bind(this);
         }
@@ -122,17 +113,6 @@ export default class BaseInput extends BaseComponent {
             this.setState({});
         }
         this.onChangeFunc && this.onChangeFunc(event);
-    }
-
-    getProperty(propertyName) {
-        let property;
-        if (propertyName === 'value' && this.props.model && this.props.property) {
-            property = this.props.model[this.props.property];
-        } else {
-            property = this.props[propertyName];
-        }
-
-        return property;
     }
 }
 
