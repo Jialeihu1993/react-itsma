@@ -8,6 +8,7 @@ export const INPUT_PROPERTY = ['max', 'min', 'maxLength', 'placeholder', 'type']
 export const RADIO_PROPERTY = ['checked', 'inline'].concat(BASE_INPUT_PROPERTY);
 export const CHECKBOX_PROPERTY = ['checked', 'inline'].concat(BASE_INPUT_PROPERTY);
 export const SELECT_PROPERTY = ['multiple'].concat(BASE_INPUT_PROPERTY);
+export const TOGGLE_PROPERTY = [].concat(BASE_INPUT_PROPERTY);
 
 
 export const FORM_PROPERTY = ['horizontal'].concat(BASE_PROPERTY);

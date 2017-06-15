@@ -225,3 +225,51 @@ span.titleBig > span {
 label.inputTitle{
   font-size: 18px;
 }
+
+.toggle_div{
+  float: left;
+}
+
+.toggle_input{
+  display:none;
+}
+
+.toggle_label{
+  position:relative;
+  display: block;
+  border-radius: 10px;
+  width:48px;
+  height: 21px;
+  opacity: 1;
+  background-color: $color-deepgrey;
+  cursor: pointer;
+}
+.toggle_label:before{
+  color:$color-green;
+  display: block;
+  border-radius: 10px;
+}
+.toggle_label:after{
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -1px;
+  width: 29px;
+  height: 29px;
+  opacity: 1;
+  border-radius: 50%;
+  border: 1px solid $color-deepgrey;
+  background-color: $color-white;
+  transition: all 0.3s ease;
+}
+.toggle_input:checked ~ .toggle_label:after{
+  margin-left: 22px;
+  border-color: $color-green;
+}
+
+.toggle_input:checked ~ .toggle_label:before{
+  background-color:$color-green;
+  content: ' ';
+  height: 21px;
+}
+
