@@ -33,7 +33,7 @@ export default class Input extends BaseInput {
             } else if (key === 'onBlur') {
                 this.onBlurFunc = property[key];
                 hasBlur = true;
-                property[key] = this.onBlurValidation.bind(this);
+                property[key] = this.onBlurHandler.bind(this);
             } else if (key === 'onChange') {
                 this.onBlurFunc = property[key];
                 hasChange = true;
@@ -41,22 +41,11 @@ export default class Input extends BaseInput {
             }
         });
         if (!hasBlur) {
-            property.onBlur = this.onBlurValidation.bind(this);
+            property.onBlur = this.onBlurHandler.bind(this);
         }
         if (!hasChange) {
             property.onChange = this.onChangeBind.bind(this);
         }
-        return property;
-    }
-
-    getProperty(propertyName) {
-        let property;
-        if (propertyName === 'value' && this.props.model && this.props.property) {
-            property = this.props.model[this.props.property];
-        } else {
-            property = this.props[propertyName];
-        }
-
         return property;
     }
 }

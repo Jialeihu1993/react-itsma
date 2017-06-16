@@ -57,13 +57,16 @@ export default class CheckboxComp extends BaseInput {
         let model = this.property.model;
         let property = this.property.property;
         let checked = event.target.checked;
+        let value = null;
+        if (checked) {
+            value = this.insertValue(event.target.value);
+        } else {
+            value = this.removeValue(event.target.value);
+        }
+        this.value = value;
         if (model && property) {
             if (!model[property]) model[property] = [];
-            if (checked) {
-                model[property] = this.insertValue(event.target.value);
-            } else {
-                model[property] = this.removeValue(event.target.value);
-            }
+            model[property] = value;
             this.property.value = model[property];
             this.setState({});
         }

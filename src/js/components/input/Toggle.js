@@ -68,6 +68,7 @@ export default class ToggleComp extends BaseInput {
         let model = this.property.model;
         let property = this.property.property;
         let isToggleOn = !this.state.isToggleOn;
+        this.value = isToggleOn;
         if (model && property) {
             model[property] = isToggleOn;
             this.property.value = model[property];

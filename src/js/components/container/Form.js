@@ -5,7 +5,7 @@ import React from 'react';
 import {Form} from 'react-bootstrap';
 import BaseContainer from './BaseContainer';
 import {FORM_PROPERTY} from '../../contants/ConstantsProperty';
-import ButtonFormMapping from '../../utils/ButtonFormMapping';
+import FormUtils from '../../utils/FormUtils';
 
 export default class FormContainer extends BaseContainer {
     constructor(props) {
@@ -25,7 +25,8 @@ export default class FormContainer extends BaseContainer {
                 if (((typeof child.type === 'string' && child.type === 'BaseButton')
                     || (typeof child.type === 'function' && child.type.displayName && child.type.displayName.indexOf('(BaseButton)') >= 0))
                     && child.props.causeValidation === true) {
-                    ButtonFormMapping.addButtonForm(child, this);
+                    debugger;
+                    // ButtonFormMapping.addButtonForm(child, this);
                 } else {
                     this.processChildButton(child);
                 }
@@ -35,18 +36,40 @@ export default class FormContainer extends BaseContainer {
             if (((typeof child.type === 'string' && child.type === 'BaseButton')
                 || (typeof child.type === 'function' && child.type.displayName.indexOf('(BaseButton)') >= 0))
                 && child.props.causeValidation === true) {
-                ButtonFormMapping.addButtonForm(child, this);
+                debugger;
+                // ButtonFormMapping.addButtonForm(child, this);
             } else {
                 this.processChildButton(child);
             }
         }
     }
 
-    runValidation(){
-        debugger;
+    componentWillMount() {
+        if (!this.formName) {
+            this.formName = FormUtils.getFormName();
+            FormUtils.addForm(this.formName, this);
+        }
+        FormUtils.setCurrentForm(this.formName);
     }
 
-    componentWillMount() {
+    componentWillUpdate() {
+        if (!this.formName) {
+            this.formName = FormUtils.getFormName();
+            FormUtils.addForm(this.formName, this);
+        }
+        FormUtils.setCurrentForm(this.formName);
+    }
+
+    componentDidMount() {
+        FormUtils.setCurrentForm(null);
+    }
+
+    componentDidUpdate() {
+        FormUtils.setCurrentForm(null);
+    }
+
+    componentWillUnmount() {
+        FormUtils.removeForm(this.formName);
     }
 
     renderComponent(property) {

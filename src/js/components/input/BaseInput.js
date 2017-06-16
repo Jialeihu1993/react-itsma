@@ -5,6 +5,7 @@ import React from 'react';
 import BaseComponent from '../BaseComponent';
 import {FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
 import CssUtils from '../../utils/CssUtils';
+import FormUtils from '../../utils/FormUtils';
 
 export default class BaseInput extends BaseComponent {
     constructor(props) {
@@ -15,9 +16,12 @@ export default class BaseInput extends BaseComponent {
         };
         this.onBlurFunc;
         this.onChangeFunc;
+        this.value;
+        this.onBlurValidation = this.onBlurValidation;
     }
 
     componentWillMount() {
+        FormUtils.attachInputToCurrentForm(null, this);
     }
 
     renderComponent(property) {
@@ -67,7 +71,7 @@ export default class BaseInput extends BaseComponent {
         let propertyKeys = Object.keys(property);
         propertyKeys.forEach(key => {
             if (key === 'onChange') {
-                this.onBlurFunc = property[key];
+                this.onChangeFunc = property[key];
                 hasChange = true;
                 property[key] = this.onChangeBind.bind(this);
             }
@@ -78,16 +82,16 @@ export default class BaseInput extends BaseComponent {
         return property;
     }
 
-    onValidation(event) {
+    onValidation(value) {
         let valResult = [true, null];
         if (this.property.validateFunc) {
-            let result = this.property.validateFunc(event);
+            let result = this.property.validateFunc(value);
             if (!result) {
-                valResult = [false, this.formatMessage({id: this.property.validationMessage})];
+                valResult = [false, this.property.validationMessage ? this.formatMessage({id: this.property.validationMessage}) : 'The value is not valid'];
             }
         } else {
             if (this.property.required === true) {
-                let result = event.target.value != null && event.target.value != '';
+                let result = value != null && value != '';
                 if (!result) {
                     valResult = [false, null];
                 }
@@ -98,8 +102,13 @@ export default class BaseInput extends BaseComponent {
 
     onBlurValidation(event) {
         let result;
-        result = this.onValidation(event);
+        result = this.onValidation(this.value);
         this.setState({validated: result[0], invalidMessage: result[1]})
+        return result;
+    }
+
+    onBlurHandler(event) {
+        let result = this.onBlurValidation(event);
         this.onBlurFunc && this.onBlurFunc(event);
         return result;
     }
@@ -107,12 +116,27 @@ export default class BaseInput extends BaseComponent {
     onChangeBind(event) {
         let model = this.property.model;
         let property = this.property.property;
+        this.value = event.target.value;
         if (model && property) {
             model[property] = event.target.value;
             this.property.value = model[property];
             this.setState({});
         }
         this.onChangeFunc && this.onChangeFunc(event);
+    }
+
+    getProperty(propertyName) {
+        let property;
+        if (propertyName === 'value' && this.props.model && this.props.property) {
+            property = this.props.model[this.props.property];
+            this.value = this.props.model[this.props.property];
+        } else if (propertyName === 'value') {
+            property = this.props[propertyName];
+            this.value = property;
+        } else {
+            property = this.props[propertyName];
+        }
+        return property;
     }
 }
 

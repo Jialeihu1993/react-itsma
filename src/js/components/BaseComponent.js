@@ -30,7 +30,7 @@ export default class BaseComponent extends React.Component {
         return this.renderComponent(property);
     }
 
-    renderComponent() {
+    renderComponent(property) {
 
     }
 
