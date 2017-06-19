@@ -6,7 +6,6 @@ import {FormattedMessage} from 'react-intl';
 import {Button} from 'react-bootstrap';
 import {BUTTON_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseComponent from '../BaseComponent';
-import CssUtils from '../../utils/CssUtils';
 import FormUtils from '../../utils/FormUtils';
 
 export default class BaseButton extends BaseComponent {
@@ -35,7 +34,7 @@ export default class BaseButton extends BaseComponent {
             property[key] = this.property[key];
         });*/
 
-        let className = CssUtils.get('baseButton');
+        let className = 'itsma_baseButton';
 
         return (
             <Button {...property} className={className}>{this.formatMessage({id: this.property.label})}</Button>
@@ -69,7 +68,6 @@ export default class BaseButton extends BaseComponent {
                 if (!validResult[0]) result = false;
             });
         }
-        result && this.onClickFunc(event);
     }
 }
 

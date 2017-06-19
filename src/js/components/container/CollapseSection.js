@@ -4,7 +4,6 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import BaseContainer from './BaseContainer';
-import CssUtils from '../../utils/CssUtils';
 
 export default class CollapseSection extends BaseContainer {
     constructor(props) {
@@ -36,8 +35,8 @@ export default class CollapseSection extends BaseContainer {
         return (
             <div>
                 <div>
-                    <span className={this._iconStatus() + ' ' + CssUtils.get('collapseArrow')} onClick={(event) => this._hideHandler(event)}></span>
-                    <span className={CssUtils.get('titleBig')}><FormattedMessage id={this.property.title} defaultMessage={this.property.title}/></span>
+                    <span className={this._iconStatus() + ' itsma_collapseArrow'} onClick={(event) => this._hideHandler(event)}></span>
+                    <span className="itsma_titleBig"><FormattedMessage id={this.property.title} defaultMessage={this.property.title}/></span>
                 </div>
                 <div className>
                     <hr />
@@ -51,7 +50,7 @@ export default class CollapseSection extends BaseContainer {
         if (this.state.isCollapsed) {
             return null;
         }
-        return <div className={CssUtils.get('collapseSection')}>{this.props.children}</div>
+        return <div className="itsma_collapseSection">{this.props.children}</div>
     }
 }
 

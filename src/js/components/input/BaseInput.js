@@ -4,7 +4,6 @@
 import React from 'react';
 import BaseComponent from '../BaseComponent';
 import {FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap';
-import CssUtils from '../../utils/CssUtils';
 import FormUtils from '../../utils/FormUtils';
 
 export default class BaseInput extends BaseComponent {
@@ -35,16 +34,16 @@ export default class BaseInput extends BaseComponent {
     }
 
     renderLabel() {
-        let className = CssUtils.get('inputTitle');
+        let className = 'itsma_inputTitle';
         if (!this.state.validated) {
-            className += ' ' + CssUtils.get('has-error');
+            className += ' itsma_has-error';
         }
         if (this.property.label) {
             return (
-                <div className={CssUtils.get('cusMargin15')}>
+                <div className='itsma_cusMargin15'>
                     <span>
                         <ControlLabel className={className}>{this.formatMessage({id: this.property.label})}
-                            {this.property.required === true  ? (<span className={CssUtils.get('mandatory')}>*</span>) : null}</ControlLabel>
+                            {this.property.required === true  ? (<span className='itsma_mandatory'>*</span>) : null}</ControlLabel>
                     </span>
                 </div>
             )
@@ -61,7 +60,7 @@ export default class BaseInput extends BaseComponent {
         if (!this.state.validated) message = this.state.invalidMessage || 'Please provide a value for this field';
         return (
             <div>
-                <HelpBlock><span className={CssUtils.get('has-error')}>{message}</span></HelpBlock>
+                <HelpBlock><span className='itsma_has-error'>{message}</span></HelpBlock>
             </div>
         )
     }
@@ -106,20 +105,13 @@ export default class BaseInput extends BaseComponent {
         this.setState({validated: result[0], invalidMessage: result[1]})
         return result;
     }
-	
-	onChangeValidation(event) {
-		let result;
-        result = this.onValidation(this.value);
-        this.setState({validated: result[0], invalidMessage: result[1]})
-        return result;
-	}
 
     onBlurHandler(event) {
         let result = this.onBlurValidation(event);
         this.onBlurFunc && this.onBlurFunc(event);
         return result;
     }
- //using state instead of redux 
+
     onChangeBind(event) {
         let model = this.property.model;
         let property = this.property.property;
@@ -129,7 +121,6 @@ export default class BaseInput extends BaseComponent {
             this.property.value = model[property];
             this.setState({});
         }
-		this.onChangeValidation(event);
         this.onChangeFunc && this.onChangeFunc(event);
     }
 
@@ -149,7 +140,7 @@ export default class BaseInput extends BaseComponent {
 }
 
 BaseInput.propTypes = Object.assign(BaseComponent.propTypes, {
-    value: React.PropTypes.array,
+    value: React.PropTypes.node,
     label: React.PropTypes.string,
     required: React.PropTypes.bool,
     readOnly: React.PropTypes.bool,
@@ -161,5 +152,4 @@ BaseInput.propTypes = Object.assign(BaseComponent.propTypes, {
     onFocus: React.PropTypes.func,
     onChange: React.PropTypes.func,
     validateFunc: React.PropTypes.func
- 
 });

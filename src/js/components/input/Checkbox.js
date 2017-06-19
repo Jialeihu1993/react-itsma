@@ -6,7 +6,6 @@ import {FormattedMessage} from 'react-intl';
 import {Checkbox} from 'react-bootstrap';
 import {CHECKBOX_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
-import CssUtils from '../../utils/CssUtils';
 
 export default class CheckboxComp extends BaseInput {
     constructor(props) {
@@ -18,7 +17,7 @@ export default class CheckboxComp extends BaseInput {
     renderInput(property) {
         let className = null;
         if (!this.state.validated) {
-            className = CssUtils.get('has-error');
+            className = 'itsma_has-error';
             property.className = className;
         }
 
@@ -39,7 +38,7 @@ export default class CheckboxComp extends BaseInput {
 
         let className = '';
         if (!this.state.validated) {
-            className += CssUtils.get('has-error');
+            className += 'itsma_has-error';
         }
 
         this.tempValue = [];

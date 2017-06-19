@@ -6,7 +6,6 @@ import {FormattedMessage} from 'react-intl';
 import {FormControl} from 'react-bootstrap';
 import {INPUT_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
-import CssUtils from '../../utils/CssUtils';
 
 export default class Input extends BaseInput {
     constructor(props) {
@@ -17,7 +16,7 @@ export default class Input extends BaseInput {
     renderInput(property) {
         let className = null;
         if (!this.state.validated) {
-            className = 'input-cus ' + CssUtils.get('has-error');
+            className = 'input-cus has-error';
             property.className = className;
         }
 

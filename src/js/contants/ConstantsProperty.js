@@ -7,7 +7,7 @@ export const BASE_INPUT_PROPERTY_SINGLE = ['checked', 'disabled', 'readOnly', 'm
 export const INPUT_PROPERTY = ['max', 'min', 'maxLength', 'placeholder', 'type','vStatus'].concat(BASE_INPUT_PROPERTY);
 export const RADIO_PROPERTY = ['checked', 'inline'].concat(BASE_INPUT_PROPERTY);
 export const CHECKBOX_PROPERTY = ['checked', 'inline'].concat(BASE_INPUT_PROPERTY);
-export const SELECT_PROPERTY = ['multiple'].concat(BASE_INPUT_PROPERTY);
+export const SELECT_PROPERTY = ['multiple', 'options'].concat(BASE_INPUT_PROPERTY);
 export const TOGGLE_PROPERTY = [].concat(BASE_INPUT_PROPERTY);
 
 

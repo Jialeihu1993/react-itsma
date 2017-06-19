@@ -6,7 +6,6 @@ import {FormattedMessage} from 'react-intl';
 import {ControlLabel, FormGroup} from 'react-bootstrap';
 import {TOGGLE_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
-import CssUtils from '../../utils/CssUtils';
 
 export default class ToggleComp extends BaseInput {
     constructor(props) {
@@ -26,16 +25,16 @@ export default class ToggleComp extends BaseInput {
     }
 
     renderLabel() {
-        let className = CssUtils.get('inputTitle');
+        let className = 'itsma_inputTitle';
         if (!this.state.validated) {
-            className += ' ' + CssUtils.get('has-error');
+            className += ' itsma_has-error';
         }
         if (this.property.label) {
             return (
-                <div className={CssUtils.get('toggle_div')}>
+                <div className='itsma_toggle_div'>
                     <span>
                         <ControlLabel className={className}>{this.formatMessage({id: this.property.label})}
-                            {this.property.required === true  ? (<span className={CssUtils.get('mandatory')}>*</span>) : null}</ControlLabel>
+                            {this.property.required === true  ? (<span className='itsma_mandatory'>*</span>) : null}</ControlLabel>
                     </span>
                 </div>
             )
@@ -46,7 +45,7 @@ export default class ToggleComp extends BaseInput {
     renderInput(property) {
         let className = null;
         if (!this.state.validated) {
-            className = CssUtils.get('has-error');
+            className = 'itsma_has-error';
             property.className = className;
         }
 
@@ -57,9 +56,9 @@ export default class ToggleComp extends BaseInput {
         }
 
         return (
-            <div className={CssUtils.get('toggle_div')} style={{paddingLeft: '100px'}} onClick={this.onChangeBind.bind(this)}>
-                <input type="checkbox" className={CssUtils.get('toggle_input')} checked={this.state.isToggleOn}/>
-                <label className={CssUtils.get('toggle_label')}></label>
+            <div className='itsma_toggle_div' style={{paddingLeft: '100px'}} onClick={this.onChangeBind.bind(this)}>
+                <input type="checkbox" className='itsma_toggle_input' checked={this.state.isToggleOn}/>
+                <label className='itsma_toggle_label'></label>
             </div>
         );
     }

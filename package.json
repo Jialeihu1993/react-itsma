@@ -47,7 +47,16 @@
     "react-addons-test-utils": "^15.3.2",
     "jsdom": "^9.5.0",
 
-    "git-url-parse": "^6.0.1"
+    "git-url-parse": "^6.0.1",
+    "formsy-react": "0.19.0",
+    "formsy-react-components": "0.10.1",
+    "gulp": "3.9.1",
+    "gulp-sass": "3.1.0",
+    "gulp-babel": "6.1.2",
+    "gulp-livereload": "3.8.1",
+    "del": "3.0.0",
+    "gulp-copy": "1.0.0",
+    "gulp-flatten": "0.3.1"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0"

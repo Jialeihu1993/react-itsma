@@ -1,13 +1,3 @@
 {
-  "presets": ["react-app"],
-  "plugins": [
-    [
-      "css-modules-transform", {
-      "camelCase": false,
-      "devMode": false,
-      "extensions": [".css", ".scss", ".less"], // list extensions to process; defaults to .css
-      "extractCss": "./dist/styles/index.css"
-    }
-    ]
-  ]
+  "presets": ["react-app"]
 }

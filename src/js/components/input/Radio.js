@@ -6,7 +6,6 @@ import {FormattedMessage} from 'react-intl';
 import {Radio} from 'react-bootstrap';
 import {RADIO_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
-import CssUtils from '../../utils/CssUtils';
 
 export default class RadioComp extends BaseInput {
     constructor(props) {
@@ -17,7 +16,7 @@ export default class RadioComp extends BaseInput {
     renderInput(property) {
         let className = null;
         if (!this.state.validated) {
-            className = CssUtils.get('has-error');
+            className = 'itsma_has-error';
             property.className = className;
         }
 
@@ -38,7 +37,7 @@ export default class RadioComp extends BaseInput {
 
         let className = '';
         if (!this.state.validated) {
-            className += CssUtils.get('has-error');
+            className += 'itsma_has-error';
         }
 
         let result = parameters.map(param => {

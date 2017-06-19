@@ -17,7 +17,6 @@ let CssUtils = function() {
     };
 
     let setCssMap = function(styleObj) {
-        styleMap = new Map();
         let keys = Object.keys(styleObj);
         keys.forEach(key => styleMap.set(key, styleObj[key]));
     };

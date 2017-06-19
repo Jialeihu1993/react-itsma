@@ -1,74 +1,72 @@
 /* (C) Copyright Hewlett-Packard Company, L.P. All Rights Reserved. */
-@import "./main";
-
 @font-face {
   font-family: HPEMetricRegular;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-Regular.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-Regular.woff');
 }
 
 @font-face {
   font-family: HPEMetricRegularItalic;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-RegularItalic.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-RegularItalic.woff');
 }
 
 @font-face {
   font-family: HPEMetricBold;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-Bold.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-Bold.woff');
 }
 
 @font-face {
   font-family: HPEMetricBoldItalic;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-BoldItalic.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-BoldItalic.woff');
 }
 
 @font-face {
   font-family: HPEMetricBlack;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-Black.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-Black.woff');
 }
 
 @font-face {
   font-family: HPEMetricBlackItalic;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-BlackItalic.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-BlackItalic.woff');
 }
 
 @font-face {
   font-family: HPEMetricLight;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-Light.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-Light.woff');
 }
 
 @font-face {
   font-family: HPEMetricLightItalic;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-LightItalic.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-LightItalic.woff');
 }
 
 @font-face {
   font-family: HPEMetricMedium;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-Medium.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-Medium.woff');
 }
 
 @font-face {
   font-family: HPEMetricMediumItalic;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-MediumItalic.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-MediumItalic.woff');
 }
 
 @font-face {
   font-family: HPEMetricSemibold;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-Semibold.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-Semibold.woff');
 }
 
 @font-face {
   font-family: HPEMetricSemiboldItalic;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-SemiboldItalic.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-SemiboldItalic.woff');
 }
 
 @font-face {
   font-family: HPEMetricThin;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-Thin.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-Thin.woff');
 }
 
 @font-face {
   font-family: HPEMetricThinItalic;
-  src: url('./font/MetricHPE_Web/MetricHPE-Web-ThinItalic.woff');
+  src: url('./static/font/MetricHPE_Web/MetricHPE-Web-ThinItalic.woff');
 }
 
 $fonts-regular: HPEMetricRegular;
@@ -110,37 +108,37 @@ form.form-horizontal div > span.warnColor {
   }
 }
 
-.cusMargin17 {
+.itsma_cusMargin17 {
   margin-bottom: 17px;
 }
 
-.cusMargin30 {
+.itsma_cusMargin30 {
   margin-bottom: 30px;
 }
 
-.cusMargin8 {
+.itsma_cusMargin8 {
   margin-bottom: 8px;
 }
 
-.cusMargin15 {
+.itsma_cusMargin15 {
   margin-bottom: 15px;
 }
 
-.cusMargin15 {
+.itsma_cusMargin15 {
   margin-bottom: 10px;
 }
 
-.cusMargin19 {
+.itsma_cusMargin19 {
   margin-bottom: 19px;
 }
 
-.formMargin {
+.itsma_formMargin {
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 10px;
 }
 
-.baseButton {
+.itsma_baseButton {
   width: 101px;
   height: 41px;
   font-family: $fonts-medium;
@@ -150,7 +148,7 @@ form.form-horizontal div > span.warnColor {
   border: 1px solid $color-deepgrey;
 }
 
-.baseButton:hover {
+.itsma_baseButton:hover {
   font-family: $fonts-medium;
   font-size: 18px;
   color: $color-white;
@@ -158,7 +156,7 @@ form.form-horizontal div > span.warnColor {
   border: none;
 }
 
-.baseButton:disabled {
+.itsma_baseButton:disabled {
   font-family: $fonts-medium;
   font-size: 18px;
   color: $color-deepgrey;
@@ -167,26 +165,30 @@ form.form-horizontal div > span.warnColor {
 }
 
 
-label.has-error {
+label.itsma_has-error {
   color: $color-black !important;
 }
 
-span.has-error {
+span.itsma_has-error {
   color: $color-red !important;
   font-size: 13px;
 }
 
-input.has-error {
+input.itsma_has-error {
   border-color: $color-red !important;
 }
 
-input:focus {
-  border-color: $color-green;
-  outline-offset: 0px !important;
-  outline: none !important;
+input{
+  outline:none !important;
 }
 
-.mandatory {
+input:focus{
+  border-style: solid !important;
+  border-color: $color-green !important;
+}
+
+
+.itsma_mandatory {
   display: inline-block;
   line-height: 20px;
   font-size: 20px;
@@ -204,7 +206,7 @@ input:focus {
   //overflow: auto;
 }
 
-.collapseArrow {
+.itsma_collapseArrow {
   fontSize: 14px;
   lineHeight: 36px;
   color: $color-deepgrey;
@@ -212,29 +214,29 @@ input:focus {
   width: 20px;
 }
 
-.collapseSection {
+.itsma_collapseSection {
   padding: 10px 0px 10px 0px
 }
 
-span.titleBig > span {
+span.itsma_titleBig > span {
   font-family: HPEMetricMedium;
   font-size: 22px;
   line-height: 36px;
 }
 
-label.inputTitle{
+label.itsma_inputTitle{
   font-size: 18px;
 }
 
-.toggle_div{
+.itsma_toggle_div{
   float: left;
 }
 
-.toggle_input{
+.itsma_toggle_input{
   display:none;
 }
 
-.toggle_label{
+.itsma_toggle_label{
   position:relative;
   display: block;
   border-radius: 10px;
@@ -244,12 +246,12 @@ label.inputTitle{
   background-color: $color-deepgrey;
   cursor: pointer;
 }
-.toggle_label:before{
+.itsma_toggle_label:before{
   color:$color-green;
   display: block;
   border-radius: 10px;
 }
-.toggle_label:after{
+.itsma_toggle_label:after{
   content: '';
   position: absolute;
   bottom: -5px;
@@ -262,12 +264,12 @@ label.inputTitle{
   background-color: $color-white;
   transition: all 0.3s ease;
 }
-.toggle_input:checked ~ .toggle_label:after{
+.itsma_toggle_input:checked ~ .itsma_toggle_label:after{
   margin-left: 22px;
   border-color: $color-green;
 }
 
-.toggle_input:checked ~ .toggle_label:before{
+.itsma_toggle_input:checked ~ .itsma_toggle_label:before{
   background-color:$color-green;
   content: ' ';
   height: 21px;
