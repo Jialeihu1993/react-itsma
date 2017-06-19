@@ -24,6 +24,22 @@ export default class Input extends BaseInput {
         return (<FormControl {...property}/>);
     }
 
+
+     onBlurValidation(event) {
+        let result = super.onBlurValidation(event);
+        if(this.property.vStatus){
+            this.property.vStatus(result[0]);
+        }
+    }
+	
+	onChangeValidation(event) {
+        let result = super.onChangeValidation(event);
+        if(this.property.vStatus){
+            this.property.vStatus(result[0]);
+        } 
+	}
+
+
     filterSpecialProperty(property) {
         let hasBlur = false, hasChange = false;
         let propertyKeys = Object.keys(property);
@@ -35,7 +51,8 @@ export default class Input extends BaseInput {
                 hasBlur = true;
                 property[key] = this.onBlurHandler.bind(this);
             } else if (key === 'onChange') {
-                this.onBlurFunc = property[key];
+                //this.onBlurFunc = property[key];
+                this.onChangeFunc = property[key];
                 hasChange = true;
                 property[key] = this.onChangeBind.bind(this);
             }
@@ -55,5 +72,6 @@ Input.propTypes = Object.assign(BaseInput.propTypes, {
     max: React.PropTypes.string,
     min: React.PropTypes.string,
     maxLength: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
+    vStatus: React.PropTypes.func
 });

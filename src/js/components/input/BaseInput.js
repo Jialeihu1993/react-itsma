@@ -106,13 +106,20 @@ export default class BaseInput extends BaseComponent {
         this.setState({validated: result[0], invalidMessage: result[1]})
         return result;
     }
+	
+	onChangeValidation(event) {
+		let result;
+        result = this.onValidation(this.value);
+        this.setState({validated: result[0], invalidMessage: result[1]})
+        return result;
+	}
 
     onBlurHandler(event) {
         let result = this.onBlurValidation(event);
         this.onBlurFunc && this.onBlurFunc(event);
         return result;
     }
-
+ //using state instead of redux 
     onChangeBind(event) {
         let model = this.property.model;
         let property = this.property.property;
@@ -122,6 +129,7 @@ export default class BaseInput extends BaseComponent {
             this.property.value = model[property];
             this.setState({});
         }
+		this.onChangeValidation(event);
         this.onChangeFunc && this.onChangeFunc(event);
     }
 
@@ -153,4 +161,5 @@ BaseInput.propTypes = Object.assign(BaseComponent.propTypes, {
     onFocus: React.PropTypes.func,
     onChange: React.PropTypes.func,
     validateFunc: React.PropTypes.func
+ 
 });
