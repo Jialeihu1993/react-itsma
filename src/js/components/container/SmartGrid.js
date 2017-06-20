@@ -25,7 +25,13 @@ export default class SmartGrid extends BaseContainer {
             for (let j = 0; j < column; j++) {
                 let child = children[index];
                 index++;
-                row.push(<Col xs={width}>{child}</Col>);
+                let className = null;
+                if (j === 0) {
+                    className = 'itsma_no_padding_left';
+                } else if (j === column - 1) {
+                    className = 'itsma_no_padding_right';
+                }
+                row.push(<Col xs={width} className={className}>{child}</Col>);
             }
             result.push(<Row>{row}</Row>);
         }
@@ -37,7 +43,7 @@ export default class SmartGrid extends BaseContainer {
         let inner = this.renderChildren(property.column, children);
 
         return (
-            <Grid>
+            <Grid className="itsma_no_padding">
                 {inner}
             </Grid>
         )

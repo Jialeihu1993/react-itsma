@@ -322,3 +322,16 @@ label.itsma_inputTitle{
 .itsma_checkbox_icon.itsma_checked {
   background-image: url(./static/images/checkbox_selected.png);
 }
+
+.itsma_no_padding_left {
+  padding-left: 0px !important;
+}
+
+.itsma_no_padding_right {
+  padding-right: 0px !important;
+}
+
+.itsma_no_padding {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
