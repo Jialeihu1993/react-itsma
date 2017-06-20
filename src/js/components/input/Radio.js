@@ -11,6 +11,7 @@ export default class RadioComp extends BaseInput {
     constructor(props) {
         super(props);
         this.setPropertyKeyList(RADIO_PROPERTY);
+        this.onClickFunc;
     }
 
     renderInput(property) {
@@ -23,6 +24,22 @@ export default class RadioComp extends BaseInput {
         let radioComp = this.renderByParameter(property);
 
         return radioComp;
+    }
+
+    filterSpecialProperty(property) {
+        let hasClick = false;
+        let propertyKeys = Object.keys(property);
+        propertyKeys.forEach(key => {
+            if (key === 'onClick') {
+                this.onClickFunc = property[key];
+                hasClick = true;
+                property[key] = this.onChangeBind.bind(this);
+            }
+        });
+        if (!hasClick) {
+            property.onClick = this.onChangeBind.bind(this);
+        }
+        return property;
     }
 
     renderByParameter(property) {
@@ -41,12 +58,36 @@ export default class RadioComp extends BaseInput {
         }
 
         let result = parameters.map(param => {
+            let labelClassName = 'itsma_radio_icon'
             let checked = param.value === checkedValue ? 'checked':'';
             let radioProps = Object.assign({}, property);
-            if (checked === 'checked') radioProps.checked = true;
-            return <Radio {...radioProps} value={param.value}><span className={className}>{param.text}</span></Radio>
+            delete radioProps.value;
+            delete radioProps.className;
+            if (checked === 'checked') {
+                radioProps.checked = true;
+                labelClassName += ' itsma_checked'
+            }
+            return (
+                <span className="itsma_radio_wrapper">
+                    <label className={labelClassName} value={param.value} {...radioProps}></label>
+                    <Radio className="itsma_radio" value={param.value} ref="radio"></Radio>
+                    <span className={className}>{param.text}</span>
+                </span>
+            )
         });
         return result;
+    }
+
+    onChangeBind(event) {
+        let model = this.property.model;
+        let property = this.property.property;
+        this.value = event.target.attributes[1].value;
+        if (model && property) {
+            model[property] = this.value;
+            this.property.value = model[property];
+            this.setState({});
+        }
+        this.onChangeFunc && this.onChangeFunc(event);
     }
 
 }

@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Button} from 'react-bootstrap';
+import {Button, FormGroup} from 'react-bootstrap';
 import {BUTTON_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseComponent from '../BaseComponent';
 import FormUtils from '../../utils/FormUtils';
@@ -37,7 +37,9 @@ export default class BaseButton extends BaseComponent {
         let className = 'itsma_baseButton';
 
         return (
-            <Button {...property} className={className}>{this.formatMessage({id: this.property.label})}</Button>
+            <FormGroup>
+                <Button {...property} className={className}>{this.formatMessage({id: this.property.label})}</Button>
+            </FormGroup>
         )
     }
 

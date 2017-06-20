@@ -24,11 +24,15 @@ export default class Input extends BaseInput {
     }
 
 
-     onBlurValidation(event) {
-        let result = super.onBlurValidation(event);
-        if(this.property.vStatus){
+    onBlurValidation(event) {
+        let result;
+        result = this.onValidation(this.value);
+        this.setState({validated: result[0], invalidMessage: result[1]});
+
+        if (this.property.vStatus) {
             this.property.vStatus(result[0]);
         }
+        return result;
     }
 	
 	onChangeValidation(event) {

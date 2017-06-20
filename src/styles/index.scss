@@ -275,3 +275,35 @@ label.itsma_inputTitle{
   height: 21px;
 }
 
+.itsma_radio_icon {
+  background-image: url(./static/images/radio_normal_unselected.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: 15px;
+  line-height: 15px;
+  padding-right: 15px;
+  vertical-align: middle;
+}
+
+.itsma_radio_icon.itsma_checked {
+  background-image: url(./static/images/radio_hover_selected.png);
+}
+
+.itsma_radio {
+  border:0 none;
+  clip: rect(0,0,0,0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.itsma_radio_wrapper {
+  padding-left: 7px;
+  padding-right: 7px;
+  height: 20px;
+  line-height: 20px;
+}
