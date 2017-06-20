@@ -43,24 +43,57 @@ export default class CheckboxComp extends BaseInput {
 
         this.tempValue = [];
         let result = parameters.map(param => {
+            let labelClassName = 'itsma_checkbox_icon';
             let checked = checkedValue && checkedValue.indexOf(param.value) >= 0 ? 'checked':'';
             let radioProps = Object.assign({}, property);
-            if (checked === 'checked') radioProps.checked = true;
+            if (checked === 'checked') {
+                radioProps.checked = true;
+                labelClassName += ' itsma_checked';
+            }
+            delete radioProps.value;
+            delete radioProps.className;
             this.tempValue.push({value:param.value, checked: checked === 'checked'});
-            return <Checkbox {...radioProps} value={param.value}><span className={className}>{param.text}</span></Checkbox>
+            return (
+                <span className="itsma_radio_wrapper">
+                    <label className={labelClassName} value={param.value} {...radioProps}></label>
+                    <Checkbox className="itsma_radio" value={param.value}></Checkbox>
+                    <span className={className}>{param.text}</span>
+                </span>
+                )
         });
         return result;
+    }
+
+    filterSpecialProperty(property) {
+        let hasClick = false;
+        let propertyKeys = Object.keys(property);
+        propertyKeys.forEach(key => {
+            if (key === 'onClick') {
+                this.onClickFunc = property[key];
+                hasClick = true;
+                property[key] = this.onChangeBind.bind(this);
+            }
+        });
+        if (!hasClick) {
+            property.onClick = this.onChangeBind.bind(this);
+        }
+        return property;
     }
 
     onChangeBind(event) {
         let model = this.property.model;
         let property = this.property.property;
-        let checked = event.target.checked;
+        let checked = true;
+        this.tempValue.forEach(tempV => {
+            if (tempV.value === event.target.attributes[1].value) {
+                checked = !tempV.checked;
+            }
+        });
         let value = null;
         if (checked) {
-            value = this.insertValue(event.target.value);
+            value = this.insertValue(event.target.attributes[1].value);
         } else {
-            value = this.removeValue(event.target.value);
+            value = this.removeValue(event.target.attributes[1].value);
         }
         this.value = value;
         if (model && property) {

@@ -70,6 +70,7 @@ export default class BaseButton extends BaseComponent {
                 if (!validResult[0]) result = false;
             });
         }
+        result && this.onClickFunc(event);
     }
 }
 

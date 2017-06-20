@@ -276,7 +276,7 @@ label.itsma_inputTitle{
 }
 
 .itsma_radio_icon {
-  background-image: url(./static/images/radio_normal_unselected.png);
+  background-image: url(./static/images/radio_unselected.png);
   background-repeat: no-repeat;
   cursor: pointer;
   display: inline-block;
@@ -287,7 +287,7 @@ label.itsma_inputTitle{
 }
 
 .itsma_radio_icon.itsma_checked {
-  background-image: url(./static/images/radio_hover_selected.png);
+  background-image: url(./static/images/radio_selected.png);
 }
 
 .itsma_radio {
@@ -306,4 +306,19 @@ label.itsma_inputTitle{
   padding-right: 7px;
   height: 20px;
   line-height: 20px;
+}
+
+.itsma_checkbox_icon {
+  background-image: url(./static/images/checkbox_unselected.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: 15px;
+  line-height: 15px;
+  padding-right: 15px;
+  vertical-align: middle;
+}
+
+.itsma_checkbox_icon.itsma_checked {
+  background-image: url(./static/images/checkbox_selected.png);
 }

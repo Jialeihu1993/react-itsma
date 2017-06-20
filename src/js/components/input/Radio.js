@@ -70,7 +70,7 @@ export default class RadioComp extends BaseInput {
             return (
                 <span className="itsma_radio_wrapper">
                     <label className={labelClassName} value={param.value} {...radioProps}></label>
-                    <Radio className="itsma_radio" value={param.value} ref="radio"></Radio>
+                    <Radio className="itsma_radio" value={param.value}></Radio>
                     <span className={className}>{param.text}</span>
                 </span>
             )
