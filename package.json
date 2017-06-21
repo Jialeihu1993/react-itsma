@@ -4,14 +4,13 @@
   "description": "React Itsma Component",
   "repository": {
     "type": "git",
-    "url": "https://github.hpe.com/SMA-RnD/react-itsma.git"
+    "url": "https://github.houston.softwaregrp.net/SMA-RnD/react-itsma.git"
   },
   "publishConfig": {
     "registry":"https://shc-nexus-repo.hpeswlab.net:8443/repository/itsma-npm/"
   },
   "scripts": {
     "clean": "rimraf dist/*",
-    "prepublish": "bash ./.scripts/prepublish.sh",
     "lint": "eslint src",
     "lintfix": "eslint src --fix",
     "testonly": "mocha --require .scripts/mocha_runner tests/**/*.js",
