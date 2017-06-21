@@ -71,6 +71,7 @@
 
 $fonts-regular: HPEMetricRegular;
 $fonts-medium: HPEMetricMedium;
+$fonts-semibold: HPEMetricSemibold;
 $layout-min-width: 1280px;
 
 //color
@@ -89,9 +90,21 @@ $color-secondary: #767676;
 $color-link: #2AD2C9;
 $color-hover: #219AC8;
 
-a, div, span, td, input, textarea, select {
+a, div, span, td, textarea, select {
   font-family: $fonts-regular;
   font-size: 16px;
+}
+
+input{
+  outline:none !important;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  height: 35px !important;
+}
+
+input:focus{
+  border-style: solid !important;
+  border-color: $color-link !important;
 }
 
 form.form-horizontal div > span.smallFont {
@@ -124,7 +137,11 @@ form.form-horizontal div > span.warnColor {
   margin-bottom: 15px;
 }
 
-.itsma_cusMargin15 {
+.itsma_cusMargin16 {
+  margin-bottom: 16px;
+}
+
+.itsma_cusMargin10 {
   margin-bottom: 10px;
 }
 
@@ -178,15 +195,6 @@ input.itsma_has-error {
   border-color: $color-red !important;
 }
 
-input{
-  outline:none !important;
-}
-
-input:focus{
-  border-style: solid !important;
-  border-color: $color-green !important;
-}
-
 
 .itsma_mandatory {
   display: inline-block;
@@ -194,7 +202,8 @@ input:focus{
   font-size: 20px;
   font-weight: 900;
   color: $color-red;
-  margin-right: 8px;
+  margin-right: 7px;
+  margin-left: 7px;
   transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -215,16 +224,22 @@ input:focus{
 }
 
 .itsma_collapseSection {
-  padding: 10px 0px 10px 0px
+  padding: 30px 0px 10px 0px
 }
 
-span.itsma_titleBig > span {
-  font-family: HPEMetricMedium;
-  font-size: 22px;
-  line-height: 36px;
+span.itsma_sectionTitle > span {
+  font-family: $fonts-semibold;
+  font-size: 24px;
+  padding-left: 18px;
+}
+
+.itsma_section_hr {
+  margin-top: 9px;
+  margin-bottom: 0px;
 }
 
 label.itsma_inputTitle{
+  font-family: $fonts-regular;
   font-size: 18px;
 }
 
@@ -334,4 +349,8 @@ label.itsma_inputTitle{
 .itsma_no_padding {
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+
+.itsma_help_block {
+  margin-top: 0px !important;
 }

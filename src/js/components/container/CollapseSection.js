@@ -36,10 +36,10 @@ export default class CollapseSection extends BaseContainer {
             <div>
                 <div>
                     <span className={this._iconStatus() + ' itsma_collapseArrow'} onClick={(event) => this._hideHandler(event)}></span>
-                    <span className="itsma_titleBig"><FormattedMessage id={this.property.title} defaultMessage={this.property.title}/></span>
+                    <span className="itsma_sectionTitle"><FormattedMessage id={this.property.title} defaultMessage={this.property.title}/></span>
                 </div>
-                <div className>
-                    <hr />
+                <div>
+                    <hr className="itsma_section_hr"/>
                 </div>
                 {this.renderChildren()}
             </div>

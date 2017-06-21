@@ -40,7 +40,7 @@ export default class BaseInput extends BaseComponent {
         }
         if (this.property.label) {
             return (
-                <div className='itsma_cusMargin15'>
+                <div className='itsma_cusMargin16'>
                     <span>
                         <ControlLabel className={className}>{this.formatMessage({id: this.property.label})}
                             {this.property.required === true  ? (<span className='itsma_mandatory'>*</span>) : null}</ControlLabel>
@@ -60,7 +60,7 @@ export default class BaseInput extends BaseComponent {
         if (!this.state.validated) message = this.state.invalidMessage || 'Please provide a value for this field';
         return (
             <div>
-                <HelpBlock><span className='itsma_has-error'>{message}</span></HelpBlock>
+                <HelpBlock className='itsma_help_block'><span className='itsma_has-error'>{message}</span></HelpBlock>
             </div>
         )
     }
