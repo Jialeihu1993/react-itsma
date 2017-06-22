@@ -21,7 +21,7 @@ gulp.task('apply-prod-environment', function() {
 });
 
 gulp.task('clean', function(cb) {
-    del(['dist'], cb)
+    return del(['dist'], cb)
 });
 
 gulp.task('copyStaticFile', function () {
@@ -45,4 +45,6 @@ gulp.task('watch', function () {
     gulp.watch(['mGlobal/**']).on('change', livereload.changed);
 });
 
-gulp.task('default', ['apply-prod-environment', 'sass', 'js', 'copyStaticFile']);
+gulp.task('default', ['clean'], function () {
+    gulp.start('apply-prod-environment', 'sass', 'js', 'copyStaticFile');
+});
