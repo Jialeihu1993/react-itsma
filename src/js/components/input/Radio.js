@@ -58,7 +58,7 @@ export default class RadioComp extends BaseInput {
         }
 
         let result = parameters.map(param => {
-            let labelClassName = 'itsma_radio_icon'
+            let labelClassName = 'itsma_radio_icon', valueClassName = 'itsma_radio_value';
             let checked = param.value === checkedValue ? 'checked':'';
             let radioProps = Object.assign({}, property);
             delete radioProps.value;
@@ -67,11 +67,14 @@ export default class RadioComp extends BaseInput {
                 radioProps.checked = true;
                 labelClassName += ' itsma_checked'
             }
+            if (!this.state.validated) {
+                valueClassName += ' ' + className
+            }
             return (
                 <span className="itsma_radio_wrapper">
                     <label className={labelClassName} value={param.value} {...radioProps}></label>
                     <Radio className="itsma_radio" value={param.value}></Radio>
-                    <span className={className}>{param.text}</span>
+                    <span className={valueClassName}>{param.text}</span>
                 </span>
             )
         });

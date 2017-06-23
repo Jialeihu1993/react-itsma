@@ -43,12 +43,15 @@ export default class CheckboxComp extends BaseInput {
 
         this.tempValue = [];
         let result = parameters.map(param => {
-            let labelClassName = 'itsma_checkbox_icon';
+            let labelClassName = 'itsma_checkbox_icon', valueClassName = 'itsma_radio_value';
             let checked = checkedValue && checkedValue.indexOf(param.value) >= 0 ? 'checked':'';
             let radioProps = Object.assign({}, property);
             if (checked === 'checked') {
                 radioProps.checked = true;
                 labelClassName += ' itsma_checked';
+            }
+            if (!this.state.validated) {
+                valueClassName += ' ' + className
             }
             delete radioProps.value;
             delete radioProps.className;
@@ -57,7 +60,7 @@ export default class CheckboxComp extends BaseInput {
                 <span className="itsma_radio_wrapper">
                     <label className={labelClassName} value={param.value} {...radioProps}></label>
                     <Checkbox className="itsma_radio" value={param.value}></Checkbox>
-                    <span className={className}>{param.text}</span>
+                    <span className={valueClassName}>{param.text}</span>
                 </span>
                 )
         });

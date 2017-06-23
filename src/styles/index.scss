@@ -107,6 +107,10 @@ input:focus{
   border-color: $color-link !important;
 }
 
+input.itsma_has-error:focus{
+  border-color: $color-red !important;
+}
+
 form.form-horizontal div > span.smallFont {
   font-size: 13px;
 
@@ -314,6 +318,23 @@ label.itsma_inputTitle{
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.itsma_radio_value {
+  color: $color-primary !important;
+  font-family: MetricHPE-Regular !important;
+  font-size: 16px;
+  line-height: 36px;
+  width: 44px;
+  height: 11px;
+  opacity: 1;
+  padding-left: 14px;
+  padding-right: 20px;
+}
+
+.itsma_radio_value .itsma_has-error {
+  color: $color-red !important;
+  font-size: 16px;
 }
 
 .itsma_radio_wrapper {

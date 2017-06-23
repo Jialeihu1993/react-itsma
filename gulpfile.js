@@ -2,7 +2,6 @@
  * Created by hepen on 6/19/2017.
  */
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
     babel = require('gulp-babel'),
     livereload = require('gulp-livereload'),
     del = require('del'),
@@ -25,7 +24,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('copyStaticFile', function () {
-    return gulp.src('./src/styles/static/**/*')
+    return gulp.src('./src/styles/**/*')
         .pipe(gulpCopy('./dist/styles/', {prefix:2}));
 });
 
@@ -46,5 +45,5 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['clean'], function () {
-    gulp.start('apply-prod-environment', 'sass', 'js', 'copyStaticFile');
+    gulp.start('apply-prod-environment', 'js', 'copyStaticFile');
 });

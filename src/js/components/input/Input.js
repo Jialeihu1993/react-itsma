@@ -16,7 +16,7 @@ export default class Input extends BaseInput {
     renderInput(property) {
         let className = null;
         if (!this.state.validated) {
-            className = 'input-cus has-error';
+            className = 'input-cus has-error itsma_has-error';
             property.className = className;
         }
 

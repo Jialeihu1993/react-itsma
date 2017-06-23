@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../../styles/select.css';
+import '../../styles/select.scss';
 
 import Select from './select/Select'
 
