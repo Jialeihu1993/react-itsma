@@ -5,12 +5,8 @@ gitRepo = 'react-itsma'
 branch  = env.BRANCH_NAME
 currentBuild.displayName = "# ${BUILD_NUMBER}-${gitRepo}-${branch}"
 
-if( branch ==~ /PR-.*/){
-    buildCMD = "mvn -s settings.xml -Pdev -Ddocker.image.tag=${branch} -B -U clean deploy"
-    currentBuild.description = "${env.CHANGE_AUTHOR_DISPLAY_NAME} : <a href=\"${env.CHANGE_URL}\" >${branch}</a>"
-}else{
-    buildCMD = "mvn -s settings.xml -Pci -B -U clean deploy"
-}
+
+    buildCMD = "mvn -s settings.xml clean install"
 
 slackChannel = '#suite-ui'
  
