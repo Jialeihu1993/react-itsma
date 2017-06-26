@@ -40,24 +40,6 @@ pipeline {
                 }  
             }
         }
-       stage('stage #2: code check'){
-             steps {
-               withMaven(maven: 'M3') {
-                sh "mvn -s settings.xml clean verify sonar:sonar"
-            }
-          }
-        }
-        stage('stage #3: deploy'){
-            steps {
-                script{
-                    if( branch ==~ /PR-.*/){
-                        echo 'deploy step is coming soon'
-                    }else{
-                        echo 'deploy step is coming soon'
-                    }
-                }  
-            }
-        }
     }
     post { 
         failure {
