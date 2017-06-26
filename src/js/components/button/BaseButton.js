@@ -37,9 +37,7 @@ export default class BaseButton extends BaseComponent {
         let className = 'itsma_baseButton';
 
         return (
-            <FormGroup>
-                <Button {...property} className={className}>{this.formatMessage({id: this.property.label})}</Button>
-            </FormGroup>
+            <Button {...property} className={className}>{this.formatMessage({id: this.property.label})}</Button>
         )
     }
 

@@ -7,7 +7,7 @@
     "url": "https://github.houston.softwaregrp.net/SMA-RnD/react-itsma.git"
   },
   "publishConfig": {
-    "registry":"http://shc-nexus-repo.hpeswlab.net:8080/repository/npm-group/"
+    "registry":"http://shc-nexus-repo.hpeswlab.net:8080/repository/itsma-npm/"
   },
   "scripts": {
     "clean": "rimraf dist/*",
