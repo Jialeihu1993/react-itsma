@@ -32,15 +32,7 @@ pipeline {
     }
     agent { label 'SUITE-BUILD' }
     stages {
-        stage('stage #1: check yaml format'){
-            steps {
-                sh '''
-                    chmod +x ./yamlcheck
-                    ./yamlcheck
-                '''
-            }
-        }
-        stage('stage #2: build'){
+        stage('stage #1: build'){
             steps {
                 sh "git rev-parse HEAD > .git/current-commit"
                 script{
@@ -52,14 +44,14 @@ pipeline {
                 }  
             }
         }
-       stage('stage #3: code check'){
+       stage('stage #2: code check'){
              steps {
                withMaven(maven: 'M3') {
                 sh "mvn -s settings.xml clean verify sonar:sonar"
             }
           }
         }
-        stage('stage #4: deploy'){
+        stage('stage #3: deploy'){
             steps {
                 script{
                     if( branch ==~ /PR-.*/){
