@@ -27,17 +27,24 @@ export default class RadioComp extends BaseInput {
     }
 
     filterSpecialProperty(property) {
-        let hasClick = false;
+        let hasClick = false, hasChange = false;
         let propertyKeys = Object.keys(property);
         propertyKeys.forEach(key => {
             if (key === 'onClick') {
                 this.onClickFunc = property[key];
                 hasClick = true;
                 property[key] = this.onChangeBind.bind(this);
+            } else if (key === 'onChange') {
+                this.onChangeFunc = property[key];
+                hasChange = true;
+                property[key] = this.onChangeBind.bind(this);
             }
         });
         if (!hasClick) {
             property.onClick = this.onChangeBind.bind(this);
+        }
+        if (!hasChange) {
+            property.onChange = this.onChangeBind.bind(this);
         }
         return property;
     }
@@ -88,6 +95,9 @@ export default class RadioComp extends BaseInput {
         if (model && property) {
             model[property] = this.value;
             this.property.value = model[property];
+            this.setState({});
+        } else {
+            this.property.value = this.value;
             this.setState({});
         }
         this.onChangeFunc && this.onChangeFunc(event);

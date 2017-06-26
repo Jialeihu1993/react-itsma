@@ -104,6 +104,9 @@ export default class CheckboxComp extends BaseInput {
             model[property] = value;
             this.property.value = model[property];
             this.setState({});
+        } else {
+            this.property.value = this.value;;
+            this.setState({});
         }
         this.onChangeFunc && this.onChangeFunc(event);
     }

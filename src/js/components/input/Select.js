@@ -6,7 +6,7 @@ import {FormattedMessage} from 'react-intl';
 import {FormControl} from 'react-bootstrap';
 import {SELECT_PROPERTY} from '../../contants/ConstantsProperty';
 import BaseInput from './BaseInput';
-import Dropdown from '../../dropdown/Dropdown';
+import Dropdown from '../dropdown/Dropdown';
 
 export default class SelectComp extends BaseInput {
     constructor(props) {
@@ -76,6 +76,9 @@ export default class SelectComp extends BaseInput {
         if (model && property) {
             model[property] = event.value;
             this.property.value = model[property];
+            this.setState({});
+        } else {
+            this.property.value = event.value;
             this.setState({});
         }
         this.onChangeFunc && this.onChangeFunc(event);
