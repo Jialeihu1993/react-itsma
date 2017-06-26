@@ -1,6 +1,6 @@
 #!groovys
 
-gitOrg  = 'https://github.hpe.com/SMA-RnD'
+gitOrg  = 'https://github.houston.softwaregrp.net/SMA-RnD'
 gitRepo = 'react-itsma'
 branch  = env.BRANCH_NAME
 currentBuild.displayName = "# ${BUILD_NUMBER}-${gitRepo}-${branch}"
