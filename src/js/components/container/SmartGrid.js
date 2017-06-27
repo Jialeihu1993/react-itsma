@@ -20,6 +20,9 @@ export default class SmartGrid extends BaseContainer {
         let width = 12 / column;
         let rows = Math.ceil(children.length / column);
         let result = [], index = 0;
+        if (!(children instanceof Array)) {
+            return <Row><Col xs={width} className="itsma_no_padding_left">{children}</Col></Row>
+        }
         for (let i = 0; i < rows; i++) {
             let row = [];
             for (let j = 0; j < column; j++) {
