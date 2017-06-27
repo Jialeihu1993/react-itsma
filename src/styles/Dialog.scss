@@ -1,0 +1,61 @@
+.MessageDialog{
+
+    div.modal-content {
+        padding-left: 8px;
+        padding-right: 8px;
+        
+        div.modal-header {
+            padding: 20px 21px 30px 21px;
+            height:58px;
+        }
+    }
+
+    .modal-close{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        img{
+            height: 10px !important;
+        }
+    }
+
+    .modal-title{
+        height:40px;
+        img{
+            height: 22px;
+            margin-bottom:5px;
+        }
+
+        span {
+            font-family: HPEMetricSemibold;
+            font-size: 24px;
+            line-height:18px;
+            padding-left: 20px;
+            
+        }
+        padding-bottom: 30px;
+    }
+
+    .modal-body{
+        padding: 20px 21px 0px 21px;
+        min-height: 80px;
+    }
+
+    .modal-body{
+      span, p{
+            font-size: 16px;
+            font-family: HPEMetricRegular;
+        }
+    }
+
+    .modal-footer{
+        border-style:none;
+        margin-top:30px;
+        height:70px;
+        padding: 0px 21px 0px 21px;
+        text-align: left;
+    }
+
+
+}

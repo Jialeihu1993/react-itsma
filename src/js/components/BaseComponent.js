@@ -82,7 +82,8 @@ BaseComponent.propTypes = {
     style: React.PropTypes.object,
     className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
-    visible: React.PropTypes.bool
+    visible: React.PropTypes.bool,
+    colspan: React.PropTypes.number
 };
 
 BaseComponent.defaultProps = {

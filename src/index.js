@@ -14,4 +14,6 @@ module.exports = {
     Checkbox: injectIntl(require('./js/components/input/Checkbox').default),
     Select: injectIntl(require('./js/components/input/Select').default),
     Toggle: injectIntl(require('./js/components/input/Toggle').default),
+
+    Dialog: injectIntl(require('./js/components/Dialog/Dialog').default),
 };
