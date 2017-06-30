@@ -81,7 +81,7 @@ export default class RadioComp extends BaseInput {
                 <span className="itsma_radio_wrapper">
                     <label className={labelClassName} value={param.value} {...radioProps}></label>
                     <Radio className="itsma_radio" value={param.value}></Radio>
-                    <span className={valueClassName}>{param.text}</span>
+                    <span className={valueClassName}>{this.formatMessage({id:param.text})}</span>
                 </span>
             )
         });

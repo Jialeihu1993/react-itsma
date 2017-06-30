@@ -60,7 +60,7 @@ export default class CheckboxComp extends BaseInput {
                 <span className="itsma_radio_wrapper">
                     <label className={labelClassName} value={param.value} {...radioProps}></label>
                     <Checkbox className="itsma_radio" value={param.value}></Checkbox>
-                    <span className={valueClassName}>{param.text}</span>
+                    <span className={valueClassName}>{this.formatMessage({id:param.text})}</span>
                 </span>
                 )
         });
