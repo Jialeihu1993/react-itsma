@@ -28,11 +28,11 @@ export default class SmartGrid extends BaseContainer {
             for (let j = 0; j < column; j++) {
                 let child = children[index];
                 index++;
-                let className = null;
+                let className = 'itsma_cusMargin30';
                 if (j === 0) {
-                    className = 'itsma_no_padding_left';
+                    className += ' itsma_no_padding_left';
                 } else if (j === column - 1) {
-                    className = 'itsma_no_padding_right';
+                    className += ' itsma_no_padding_right';
                 }
                 row.push(<Col xs={width} className={className}>{child}</Col>);
             }
