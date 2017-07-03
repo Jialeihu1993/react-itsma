@@ -20,7 +20,6 @@ export default class Navigator extends BaseComponent {
         this.idIndex = 0;
         this.parameters = Array.from(this.props.parameters);
         this.pathname = browserHistory.getCurrentLocation().pathname;
-        this.currentNode;
     }
 
     componentWillMount() {
@@ -78,7 +77,6 @@ export default class Navigator extends BaseComponent {
     }
 
     onClickLinkHandler(name) {
-        this.currentNode = name;
         this.setState({});
     }
 
@@ -129,10 +127,6 @@ export default class Navigator extends BaseComponent {
         )
     }
 
-    getNodeByParentNodeId(nodeId){
-        return this.flatNodeTree.find(node => node.parentNodeId === nodeId);
-    }
-
     renderNavigateTree(level, parameters) {
         if (!parameters) parameters = this.parameters;
         let result = [];
@@ -155,7 +149,7 @@ export default class Navigator extends BaseComponent {
             if (param.link) {
                 className = 'colFull ' + className;
                 let style = {textDecoration: 'none'};
-                if (this.currentNode === param.nodeId) {
+                if (this.pathname === param.link) {
                     style.color = '#01A982';
                 }
 
