@@ -19,14 +19,18 @@ export default class Navigator extends BaseComponent {
         this.flatNodeTree = [];
         this.idIndex = 0;
         this.parameters = Array.from(this.props.parameters);
-        this.pathname = browserHistory.getCurrentLocation().pathname;
     }
 
     componentWillMount() {
+        this.pathname = browserHistory.getCurrentLocation().pathname;
         this.initNodeTree(0);
     }
 
     componentDidMount() {
+    }
+
+    componentWillUpdate() {
+        this.pathname = browserHistory.getCurrentLocation().pathname;
     }
 
     componentDidUpdate() {
@@ -111,7 +115,7 @@ export default class Navigator extends BaseComponent {
                 </Collapse>
             )
         }
-        if (param.nodeId === '2-4') debugger;
+
         return (
             <Collapse in={isOpen}>
                 <div>
