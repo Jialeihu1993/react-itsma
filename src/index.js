@@ -15,5 +15,6 @@ module.exports = {
     Select: injectIntl(require('./js/components/input/Select').default),
     Toggle: injectIntl(require('./js/components/input/Toggle').default),
 
-    Dialog: injectIntl(require('./js/components/Dialog/Dialog').default),
+    Dialog: injectIntl(require('./js/components/dialog/Dialog').default),
+    Navigator: injectIntl(require('./js/components/navigator/Navigator').default),
 };
