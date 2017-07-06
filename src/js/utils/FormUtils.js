@@ -33,31 +33,42 @@ let FormUtils = function() {
     };
 
     let attachInputToCurrentForm = function(name, input) {
-        let formObj = formList.find(form => form.name === currentForm);
+        let formObj;
+        formList.forEach(form => {
+            form.name === currentForm && (formObj = form);
+        });
         if (formObj) {
             formObj.inputs.push({name: name, input: input})
         }
     };
 
     let attachButtonToCurrentForm = function(name, button) {
-        let formObj = formList.find(form => form.name === currentForm);
+        let formObj;
+        formList.forEach(form => {
+            form.name === currentForm && (formObj = form);
+        });
         if (formObj) {
             formObj.buttons.push({name: name, input: button})
         }
     };
 
     let findButtonByName = function(buttonName){
-        let result = formList.find(formObj => {
+        let result;
+        formList.forEach(formObj => {
             let buttons = formObj.buttons;
-            let buttonFounded = buttons.find(buttonObj => buttonObj.name === buttonName);
-            if (buttonFounded) return true;
+            let buttonFounded;
+            buttons.forEach(buttonObj => {
+                buttonObj.name === buttonName && (buttonFounded = buttonObj);
+            });
+            if (buttonFounded) result = formObj;
         });
         return result;
     };
 
     let removeForm = function(formName) {
-        let index = formList.findIndex(formObj => {
-            return formName === formObj.name;
+        let index;
+        formList.forEach((formObj, i) => {
+            formName === formObj.name && (index = i);
         });
         formList.splice(index, 1);
     };
