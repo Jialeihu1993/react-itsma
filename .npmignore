@@ -1,0 +1,12 @@
+.scripts
+node
+src
+stories
+test
+.npmrc
+.npmignore
+.babelrc
+gulpfile.js
+Jenkinsfile
+pom.xml
+settings.xml
