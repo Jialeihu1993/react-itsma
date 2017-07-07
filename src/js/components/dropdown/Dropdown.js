@@ -10,7 +10,7 @@ class Dropdown extends Component {
 	}
 
 	componentWillReceiveProps(newProps) {
-			this.value = newProps.value.toString();
+		newProps.value && (this.value = newProps.value.toString());
 	}
 
 	onChange(newValue) {
