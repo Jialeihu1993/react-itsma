@@ -33,8 +33,13 @@ export default class SelectComp extends BaseInput {
         keys.forEach(key => {
             if (key === 'parameters') {
                 this.property['options'] = this.getProperty(key);
+                this.property['options'].forEach(option => {
+                    if (option.text) {
+                        option.text = this.formatMessage({id: option.text});
+                    }
+                })
             } else {
-                this.property[key] = this.getProperty(key)
+                this.property[key] = this.getProperty(key);
             }
         });
     }
