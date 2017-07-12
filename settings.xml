@@ -106,7 +106,7 @@ under the License.
     <proxy>
       <active>true</active>
       <protocol>http</protocol>
-      <host>web-proxy.rose.hp.com</host>
+      <host>web-proxy.cce.hp.com</host>
       <port>8080</port>
       <nonProxyHosts>*.hpeswlab.net|16.*|127.0.0.1</nonProxyHosts>
     </proxy>

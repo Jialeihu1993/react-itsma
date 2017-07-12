@@ -77,7 +77,7 @@ export default class BaseComponent extends React.Component {
 }
 
 BaseComponent.propTypes = {
-    id: React.PropTypes.string.isRequired,
+    id: React.PropTypes.string,
     name: React.PropTypes.string,
     style: React.PropTypes.object,
     className: React.PropTypes.string,
