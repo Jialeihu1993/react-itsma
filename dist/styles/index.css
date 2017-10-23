@@ -1,0 +1,259 @@
+/* (C) Copyright Hewlett-Packard Company, L.P. All Rights Reserved. */
+@font-face {
+  font-family: HPEMetricRegular;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-Regular.woff"); }
+
+@font-face {
+  font-family: HPEMetricRegularItalic;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-RegularItalic.woff"); }
+
+@font-face {
+  font-family: HPEMetricBold;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-Bold.woff"); }
+
+@font-face {
+  font-family: HPEMetricBoldItalic;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-BoldItalic.woff"); }
+
+@font-face {
+  font-family: HPEMetricBlack;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-Black.woff"); }
+
+@font-face {
+  font-family: HPEMetricBlackItalic;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-BlackItalic.woff"); }
+
+@font-face {
+  font-family: HPEMetricLight;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-Light.woff"); }
+
+@font-face {
+  font-family: HPEMetricLightItalic;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-LightItalic.woff"); }
+
+@font-face {
+  font-family: HPEMetricMedium;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-Medium.woff"); }
+
+@font-face {
+  font-family: HPEMetricMediumItalic;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-MediumItalic.woff"); }
+
+@font-face {
+  font-family: HPEMetricSemibold;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-Semibold.woff"); }
+
+@font-face {
+  font-family: HPEMetricSemiboldItalic;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-SemiboldItalic.woff"); }
+
+@font-face {
+  font-family: HPEMetricThin;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-Thin.woff"); }
+
+@font-face {
+  font-family: HPEMetricThinItalic;
+  src: url("./static/font/MetricHPE_Web/MetricHPE-Web-ThinItalic.woff"); }
+
+a, div, span, td, input, textarea, select {
+  font-family: HPEMetricRegular;
+  font-size: 16px; }
+
+form.form-horizontal div > span.smallFont {
+  font-size: 13px; }
+  form.form-horizontal div > span.smallFont span {
+    font-size: 13px; }
+
+form.form-horizontal div > span.warnColor span {
+  color: #FF454F; }
+
+.itsma_cusMargin17 {
+  margin-bottom: 17px; }
+
+.itsma_cusMargin30 {
+  margin-bottom: 30px; }
+
+.itsma_cusMargin8 {
+  margin-bottom: 8px; }
+
+.itsma_cusMargin15 {
+  margin-bottom: 15px; }
+
+.itsma_cusMargin15 {
+  margin-bottom: 10px; }
+
+.itsma_cusMargin19 {
+  margin-bottom: 19px; }
+
+.itsma_formMargin {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px; }
+
+.itsma_baseButton {
+  width: 101px;
+  height: 41px;
+  font-family: HPEMetricMedium;
+  font-size: 18px;
+  color: #333333;
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC; }
+
+.itsma_baseButton:hover {
+  font-family: HPEMetricMedium;
+  font-size: 18px;
+  color: #FFFFFF;
+  background: #01A982;
+  border: none; }
+
+.itsma_baseButton:disabled {
+  font-family: HPEMetricMedium;
+  font-size: 18px;
+  color: #CCCCCC;
+  background: #F0F0F0;
+  border: none; }
+
+label.itsma_has-error {
+  color: #333333 !important; }
+
+span.itsma_has-error {
+  color: #FF454F !important;
+  font-size: 13px; }
+
+input.itsma_has-error {
+  border-color: #FF454F !important; }
+
+input {
+  outline: none !important; }
+
+input:focus {
+  border-style: solid !important;
+  border-color: #01A982 !important; }
+
+.itsma_mandatory {
+  display: inline-block;
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #FF454F;
+  margin-right: 8px;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg); }
+
+#navigatorContainer {
+  border-right: 2px solid #CCCCCC; }
+
+.itsma_collapseArrow {
+  fontSize: 14px;
+  lineHeight: 36px;
+  color: #CCCCCC;
+  cursor: pointer;
+  width: 20px; }
+
+.itsma_collapseSection {
+  padding: 10px 0px 10px 0px; }
+
+span.itsma_titleBig > span {
+  font-family: HPEMetricMedium;
+  font-size: 22px;
+  line-height: 36px; }
+
+label.itsma_inputTitle {
+  font-size: 18px; }
+
+.itsma_toggle_div {
+  float: left; }
+
+.itsma_toggle_input {
+  display: none; }
+
+.itsma_toggle_label {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  width: 48px;
+  height: 21px;
+  opacity: 1;
+  background-color: #CCCCCC;
+  cursor: pointer; }
+
+.itsma_toggle_label:before {
+  color: #01A982;
+  display: block;
+  border-radius: 10px; }
+
+.itsma_toggle_label:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -1px;
+  width: 29px;
+  height: 29px;
+  opacity: 1;
+  border-radius: 50%;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  transition: all 0.3s ease; }
+
+.itsma_toggle_input:checked ~ .itsma_toggle_label:after {
+  margin-left: 22px;
+  border-color: #01A982; }
+
+.itsma_toggle_input:checked ~ .itsma_toggle_label:before {
+  background-color: #01A982;
+  content: ' ';
+  height: 21px; }
+
+.itsma_radio_icon {
+  background-image: url(./static/images/radio_unselected.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  padding-right: 16px;
+  vertical-align: middle; }
+
+.itsma_radio_icon.itsma_checked {
+  background-image: url(./static/images/radio_selected.png); }
+
+.itsma_radio {
+  border: 0 none;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.itsma_radio_wrapper {
+  padding-left: 7px;
+  padding-right: 7px;
+  height: 20px;
+  line-height: 20px; }
+
+.itsma_checkbox_icon {
+  background-image: url(./static/images/checkbox_unselected.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  padding-right: 16px;
+  vertical-align: middle; }
+
+.itsma_checkbox_icon.itsma_checked {
+  background-image: url(./static/images/checkbox_selected.png); }
+
+.itsma_no_padding_left {
+  padding-left: 0px !important; }
+
+.itsma_no_padding_right {
+  padding-right: 0px !important; }
+
+.itsma_no_padding {
+  padding-left: 0px !important;
+  padding-right: 0px !important; }
